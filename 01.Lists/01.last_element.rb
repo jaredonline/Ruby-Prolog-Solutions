@@ -30,11 +30,8 @@ list.next.next = LinkedList.new(3)
 p list.last_element.value # => 3
 
 def functional_last_element(list)
-  unless list.next.nil?
-    list = list.next 
-    list = functional_last_element(list)
-  end
-  return list
+  return functional_last_element(list.next) unless list.next.nil?
+  list
 end
 
 p functional_last_element(list).value # => 3

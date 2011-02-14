@@ -25,4 +25,4 @@ list = LinkedList.new(1)
 list.next = LinkedList.new(2)
 list.next.next = LinkedList.new(3)
 
-p list.last_element
+p list.last_element.value # => 3

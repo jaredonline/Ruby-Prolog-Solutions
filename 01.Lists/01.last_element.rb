@@ -1,3 +1,5 @@
+# 1.01 (*) Find the last element of a list
+
 class LinkedList
   
   attr_accessor :next

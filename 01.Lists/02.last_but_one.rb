@@ -1,4 +1,4 @@
-# 1.01 (*) Find the last element of a list
+# 1.02 (*) Find the last but one element of a list.
 
 class LinkedList
   
@@ -10,7 +10,7 @@ class LinkedList
     @next = nil
   end
   
-  def last_element
+  def last_but_one_element
     next_element = @next
     last_element = self
     while next_element != nil
@@ -27,14 +27,4 @@ list = LinkedList.new(1)
 list.next = LinkedList.new(2)
 list.next.next = LinkedList.new(3)
 
-p list.last_element.value # => 3
-
-def functional_last_element(list)
-  unless list.next.nil?
-    list = list.next 
-    list = functional_last_element(list)
-  end
-  return list
-end
-
-p functional_last_element(list).value # => 3
+p list.last_but_one_element.value # => 2

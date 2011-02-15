@@ -24,25 +24,6 @@ class LinkedList
     
     current_list.next = head
     head = current_list
-    # 1 => 2, 2 => 3, 3 => 4, 4 => nil
-    # head = nil
-    # next_list => 2
-    # current_list = 1
-    
-    # 1 => nil, 2 => 3, 3 => 4, 4 => nil
-    # head = 1
-    # current_list = 2
-    # next_list = 3
-    
-    # 2 => 1, 1 => nil, 3 => 4, 4 => nil
-    # head = 2
-    # current_list = 3
-    # next_list = 4
-    
-    # 3 => 2, 2 => 1, 1 => nil, 4 => nil
-    # head = 3
-    # current_list = 4
-    # next_list = nil
     
     return head
   end
@@ -56,8 +37,40 @@ list.next.next.next = LinkedList.new(4)
 list.next.next.next.next = LinkedList.new(5)
 
 list = list.reverse
+str = []
+str << list.value
 while list.next != nil
-  p list.value
   list = list.next
+  str << list.value
 end
-# => 4, 3, 2, 1
+p str.join(",") # => 5, 4, 3, 2, 1
+
+def functional_reverse(list, head = nil)
+  if list.nil?
+    return head
+  elsif list.next.nil?
+    list.next = head
+    head = list
+    return head
+  else
+    next_list = list.next
+    list.next = head
+    head = list
+    return functional_reverse(next_list, head)
+  end
+end
+
+list = LinkedList.new(1)
+list.next = LinkedList.new(2)
+list.next.next = LinkedList.new(3)
+list.next.next.next = LinkedList.new(4)
+list.next.next.next.next = LinkedList.new(5)
+
+list = functional_reverse(list)
+str = []
+str << list.value
+while list.next != nil
+  list = list.next
+  str << list.value
+end
+p str.join(",") # => 5, 4, 3, 2, 1

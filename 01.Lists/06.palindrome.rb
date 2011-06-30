@@ -28,3 +28,17 @@ class LinkedList
   end
   
 end
+
+def functional_palindrome?(list, reverse_list = nil)
+  if reverse_list.nil?
+    reverse_list = functional_reverse(list.clone)
+  end
+  
+  if (list.nil? && !reverse_list.nil?) || (!list.nil? && reverse_list.nil?) || (list.value != reverse_list.value)
+    return false
+  elsif (list.nil? && reverse_list.nil?) || ((list.next.nil? && reverse_list.next.nil?) && (list.value == reverse_list.value))
+    return true
+  else
+    return functional_palindrome?(list.next, reverse_list.next)
+  end
+end

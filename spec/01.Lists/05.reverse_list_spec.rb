@@ -10,24 +10,17 @@ describe LinkedList do
   end
   
   it 'should reverse a list' do
-    list = @list.reverse
-    str = []
-    str << list.value
-    while list.next != nil
-      list = list.next
-      str << list.value
-    end
-    str.join(',').should == "5,4,3,2,1"
+    @list.to_s.should == "1,2,3,4,5"
+    @list.reverse.to_s.should == "5,4,3,2,1"
   end
   
   it 'should functionally reverse the list' do
-    list = functional_reverse(@list)
-    str = []
-    str << list.value
-    while list.next != nil
-      list = list.next
-      str << list.value
-    end
-    str.join(",").should == "5,4,3,2,1"
+    @list.to_s.should == "1,2,3,4,5"
+    functional_reverse(@list).to_s.should == "5,4,3,2,1"
+  end
+  
+  it 'should not clobber the original variable' do
+    functional_reverse(@list)
+    @list.to_s.should == "1,2,3,4,5"
   end
 end

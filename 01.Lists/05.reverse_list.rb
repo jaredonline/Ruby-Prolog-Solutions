@@ -25,6 +25,7 @@ class LinkedList
 end
 
 def functional_reverse(list, head = nil)
+  list = list.clone
   if list.nil?
     return head
   elsif list.next.nil?

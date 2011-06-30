@@ -1,4 +1,8 @@
 # 1.01 (*) Find the last element of a list
+#
+#      Example:
+#      ?- my_last(X,[a,b,c,d]).
+#      X = d
 
 require '01.Lists/linked_list'
 

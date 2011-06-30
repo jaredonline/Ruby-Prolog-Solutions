@@ -1,14 +1,8 @@
 # 1.04 (*) Find the number of elements of a list.
 
+require '01.Lists/linked_list'
+
 class LinkedList
-  
-  attr_accessor :next
-  attr_accessor :value
-  
-  def initialize(value)
-    @value = value
-    @next = nil
-  end
   
   def count
     counter = 1
@@ -22,13 +16,6 @@ class LinkedList
   
 end
 
-list = LinkedList.new(1)
-list.next = LinkedList.new(2)
-list.next.next = LinkedList.new(3)
-list.next.next.next = LinkedList.new(4)
-
-p list.count # => 4
-
 def functional_count(list, current_count = 1)
   if list.next.nil?
     return current_count
@@ -36,5 +23,3 @@ def functional_count(list, current_count = 1)
     return functional_count(list.next, current_count + 1)
   end
 end
-
-p functional_count(list) # => 4

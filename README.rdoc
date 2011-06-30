@@ -1,0 +1,7 @@
+= Ruby Prolog Solutions
+
+This is my personal quest to create solutions to all of the Prolog questions.  A solution is satisfactory if its corresponding RSpec tests pass.  I'll be creating a solution using OO methods and Functional methods for every question.
+
+== Contributions
+
+Feel free to fork and commit changes to the solutions.  Please don't submit solutions to problems I have not answered yet

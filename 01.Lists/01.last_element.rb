@@ -1,14 +1,8 @@
 # 1.01 (*) Find the last element of a list
 
+require '01.Lists/linked_list'
+
 class LinkedList
-  
-  attr_accessor :next
-  attr_accessor :value
-  
-  def initialize(value)
-    @value = value
-    @next = nil
-  end
   
   def last_element
     next_element = @next
@@ -23,15 +17,7 @@ class LinkedList
   
 end
 
-list = LinkedList.new(1)
-list.next = LinkedList.new(2)
-list.next.next = LinkedList.new(3)
-
-p list.last_element.value # => 3
-
 def functional_last_element(list)
   return functional_last_element(list.next) unless list.next.nil?
   list
 end
-
-p functional_last_element(list).value # => 3
